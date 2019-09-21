@@ -1179,12 +1179,13 @@ class PBAKER_OT_bake(bpy.types.Operator):
             return {'CANCELLED'}
 
         self.settings = context.scene.principled_baker_settings
-
-        # Check file path
-        check = self.check_file_path()
-        if not check:
-            self.report({'ERROR'}, "'{}' Permission denied".format(self.settings.file_path))
-            return {'CANCELLED'}
+        
+        # TODO bug: permission checking to harsh!?
+#        # Check file path
+#        check = self.check_file_path()
+#        if not check:
+#            self.report({'ERROR'}, "'{}' Permission denied".format(self.settings.file_path))
+#            return {'CANCELLED'}
 
         # 2.79
         if is_2_79:
